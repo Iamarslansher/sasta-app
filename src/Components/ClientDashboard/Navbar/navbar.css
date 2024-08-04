@@ -53,6 +53,10 @@
   object-fit: cover;
   border: 2px solid white;
   transition: transform 0.3s ease;
+  border-bottom: 3px solid yellow;
+  border-top: 3px solid green;
+  border-left: 3px solid blue;
+  border-right: 3px solid pink;
 }
 
 .profile-container:hover .profile-image {

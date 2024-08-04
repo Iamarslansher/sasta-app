@@ -4,8 +4,6 @@ import Card from "./Card";
 import { getingProducts } from "../../config/fireBase";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-// +++====
-// import Navbar from "../AdminDashboard/Navbar";
 
 function ClientDashoard() {
   const [products, setProducts] = useState("");
@@ -39,6 +37,7 @@ function ClientDashoard() {
     <div>
       <Navbar />
       <h1 className="main_heading">All Products</h1>
+      <h4>somthing</h4>
       <div className="product_div">
         {products ? (
           products.map((product, index) => (

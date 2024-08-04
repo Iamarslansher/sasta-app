@@ -37,7 +37,11 @@ const Navbar = () => {
   return (
     <nav className="admin-navbar">
       <div className="navbar-logo">
-        <img src={logo} alt="Logo" className="logo-image" />
+        <img
+          src="https://play-lh.googleusercontent.com/khTfx2m0GRAJ32LFmbC-QuFQFwJoGiI0IjzQOJVEJtAipBre7ziJNlQUcqcJNS6f9A"
+          alt="Logo"
+          className="logo-image"
+        />
       </div>
 
       <div className="nav-tag">
