@@ -1,0 +1,165 @@
+.update-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f0f2f5;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.update-profile-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profile-image-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 1rem;
+}
+
+.profile-Image,
+.profile-image-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.profile-image:hover,
+.profile-image-placeholder:hover {
+  transform: scale(1.05);
+}
+
+.camera-icon {
+  font-size: 3rem;
+  color: #757575;
+}
+
+.change-image-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.profile-image-wrapper:hover .change-image-btn {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.change-image-btn:hover {
+  background-color: #3a7bd5;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.submit-btn,
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  width: 45%;
+  max-width: 150px;
+}
+
+.submit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #d32f2f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.action-buttons {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@media (max-width: 480px) {
+  .update-profile-container {
+    padding: 0.5rem;
+  }
+
+  .profile-image-wrapper {
+    width: 90%;
+  }
+
+  .change-image-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .submit-btn,
+  .cancel-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .camera-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (hover: none) {
+  .change-image-btn {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+  }
+}

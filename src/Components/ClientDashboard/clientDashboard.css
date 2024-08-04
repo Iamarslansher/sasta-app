@@ -1,0 +1,16 @@
+.main_heading {
+  text-align: center;
+  margin: 20px 0px;
+  font-size: 65px;
+  font-weight: bold;
+  text-shadow: 0 0 10px gray;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  text-decoration-color: aqua;
+}
+.product_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}

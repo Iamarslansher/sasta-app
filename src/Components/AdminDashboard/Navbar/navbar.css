@@ -1,0 +1,124 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbarLogo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbarLinks {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbarLinks li {
+  margin: 0 1rem;
+}
+
+.navbarLinks a {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbarLinks a:hover {
+  color: #007bff;
+}
+
+.icons {
+  margin-right: 0.5rem;
+}
+
+.navbarProfile {
+  position: relative;
+}
+
+.profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profileDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdownItem:hover {
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbarLinks {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .navbarLinks li {
+    margin: 0.3rem 0;
+  }
+
+  .navbarProfile {
+    align-self: flex-end;
+    margin-top: 1rem;
+  }
+
+  .profileDropdown {
+    width: 100%;
+    position: static;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbarLogo a {
+    font-size: 1.2rem;
+  }
+
+  .navbarLinks a {
+    font-size: 0.9rem;
+  }
+
+  .profileImage {
+    width: 30px;
+    height: 30px;
+  }
+}
