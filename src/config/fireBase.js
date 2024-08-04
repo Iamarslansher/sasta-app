@@ -94,7 +94,13 @@ export async function productDetail(itemInfo, navigate) {
       timestamp: new Date(),
     };
     await setDoc(docRef, data);
-    alert("Product added successfully");
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Product added successfully",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     navigate("/admindashboard");
   } catch (e) {
     alert(e.message);
@@ -154,7 +160,13 @@ export const uploadImage = async (data, navigate) => {
     });
     let UpdateUser = { ...user, profileImgUrl };
     localStorage.setItem("user", JSON.stringify(UpdateUser));
-    alert("Profile Update Successfully");
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Profile updated successfully!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     navigate(`/${role}dashboard`);
 
     // navigate("/admindashboard");
@@ -227,8 +239,39 @@ export async function allOrders() {
 
 export async function feedback(userFeedback) {
   try {
-    console.log(userFeedback);
+    const docRef = doc(collection(db, "userFeedbacks"));
+    const data = {
+      userFeedback,
+      feedbackId: docRef.id,
+      date: new Date().toLocaleString(),
+    };
+    await setDoc(docRef, data);
+    Swal.fire({
+      title: "Thank You!😊",
+      text: "Thank you so much for taking the time to leave us this amazing review! ",
+      imageUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_dG3xsqbAU6MBZ_o7SXGArOnvAh7ebyyTCA&s",
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: "Custom image",
+    });
   } catch (error) {
     alert("Error: " + error.message);
+  }
+}
+
+// ALL-FEEDBACKS
+export async function allFeedbacks() {
+  try {
+    const querySnapshot = await getDocs(collection(db, "userFeedbacks"));
+    const feedbacks = [];
+    querySnapshot.forEach((doc) => {
+      const feedback = doc.data();
+
+      feedbacks.push(feedback);
+    });
+    return feedbacks;
+  } catch (error) {
+    alert(error.message);
   }
 }

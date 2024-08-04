@@ -41,7 +41,7 @@ const Footer = () => {
             <MdPhone /> 0307-2973307
           </p>
           <p>
-            <MdLocationOn /> 123 Main St, City, Country
+            <MdLocationOn /> Multan, Pakistan
           </p>
         </div>
       </div>

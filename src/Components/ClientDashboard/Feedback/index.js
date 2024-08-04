@@ -9,14 +9,19 @@ const Feedback = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const data = location.state.props.order;
-  const image = data.image;
+  const { image, userId, name, productId } = data;
   const [rating, setRating] = useState(0);
+  const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await feedback({ rating, comment, data });
-    alert("Submit");
+    await feedback({
+      rating,
+      comment,
+
+      userData: { email, image, userId, name, productId },
+    });
     setRating(0);
     setComment("");
   };
@@ -47,6 +52,11 @@ const Feedback = () => {
             ))}
           </div>
           <div className="user-input">
+            <input
+              type="text"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <FaUser className="user-icon" />
             <textarea
               value={comment}

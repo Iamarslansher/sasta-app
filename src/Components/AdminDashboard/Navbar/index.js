@@ -29,7 +29,13 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbarLogo">
-        <Link to="/">Logo</Link>
+        <Link to="/admindashboard">
+          <img
+            className="logo"
+            src="https://play-lh.googleusercontent.com/khTfx2m0GRAJ32LFmbC-QuFQFwJoGiI0IjzQOJVEJtAipBre7ziJNlQUcqcJNS6f9A"
+            alt=""
+          />
+        </Link>
       </div>
       <ul className="navbarLinks">
         <li>

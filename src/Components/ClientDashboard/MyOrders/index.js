@@ -13,7 +13,7 @@ function MyOrders() {
     setUserId(userId);
 
     myOrders();
-  }, []);
+  });
 
   const myOrders = async () => {
     const all_Orders = await allOrders();
@@ -21,8 +21,9 @@ function MyOrders() {
     const totalOrders = all_Orders.filter((order) => {
       return order.userId === userId;
     });
-
+    // console.log(totalOrders, "totalOrders");
     setOrders(totalOrders);
+    // console.log(orders, "Orders");
   };
 
   if (!orders) {

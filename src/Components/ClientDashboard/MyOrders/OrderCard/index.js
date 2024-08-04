@@ -42,7 +42,7 @@ const OrderCard = (props) => {
           </div>
           <div className="rating">
             {[...Array(5)].map((_, index) => (
-              <FaStar key={index} className="star" />
+              <FaStar key={index} className="stars" />
             ))}
             <span>(4.8)</span>
           </div>
