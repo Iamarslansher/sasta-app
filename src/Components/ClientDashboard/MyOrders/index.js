@@ -1,83 +1,54 @@
 import React, { useEffect, useState } from "react";
 import { allOrders } from "../../../config/fireBase";
 import Card from "./OrderCard";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FaArrowRightLong } from "react-icons/fa6";
+import "./myOrder.css";
 
 function MyOrders() {
+  const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
   const [userId, setUserId] = useState("");
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    const userId = user.id;
-    setUserId(userId);
+    const user_Id = user.id;
+    setUserId(user_Id);
 
-    myOrders();
-  });
+    myOrder();
+  }, [orders]);
 
-  const myOrders = async () => {
+  const myOrder = async () => {
     const all_Orders = await allOrders();
-
-    const totalOrders = all_Orders.filter((order) => {
-      return order.userId === userId;
+    const totalOrders = all_Orders.filter((ordr) => {
+      return ordr.userId === userId;
     });
-    // console.log(totalOrders, "totalOrders");
     setOrders(totalOrders);
-    // console.log(orders, "Orders");
   };
 
-  if (!orders) {
-    return <img src="https://i.gifer.com/HMoD.gif" alt="" />;
-  }
-
   return (
-    <>
-      <h2
-        style={{
-          textAlign: "center !important",
-          marginTop: "10px",
-          color: "gray",
-          fontSize: "28px",
-          fontWeight: "bold",
-          borderBottom: "2px solid #ccc",
-          paddingBottom: "10px",
-          marginBottom: "20px",
-          paddingTop: "10px",
-          paddingLeft: "10px",
-          paddingRight: "10px",
-          backgroundColor: "#f7f7f7",
-          boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.1)",
-          borderRadius: "5px",
-          overflow: "hidden",
-          width: "100%",
-          cursor: "pointer",
-        }}
-      >
-        My Orders
-      </h2>
+    <div className="OrderContainer">
+      <h2 className="navHead">My Orders</h2>
       <div>
         {orders ? (
           orders.map((order) => {
             return <Card order={order} />;
           })
         ) : (
-          <>
-            <h1
-              style={{
-                textAlign: "center",
-                marginTop: "100px",
-                color: "gray",
-                fontSize: "24px",
-                fontWeight: "bold",
-              }}
-            >
-              You have no Orders yet.
-            </h1>
-            <Link to="/clientdashboard">Order Now</Link>
-          </>
+          <div>
+            <h1 className="container-text">You have no Orders yet.</h1>
+            <div className="main-div">
+              <button
+                className="linkBtn"
+                onClick={() => navigate("/clientdashboard")}
+              >
+                Order Now <FaArrowRightLong className="arrow" />
+              </button>
+            </div>
+          </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

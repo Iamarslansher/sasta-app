@@ -20,24 +20,10 @@ function ClientDashoard() {
     setProducts(all_products);
   };
 
-  if (!products) {
-    return (
-      <img
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-        alt=""
-        src="https://www.icegif.com/wp-content/uploads/2023/07/icegif-1262.gif"
-      />
-    );
-  }
-
   return (
     <div>
       <Navbar />
       <h1 className="main_heading">All Products</h1>
-      <h4>somthing</h4>
       <div className="product_div">
         {products ? (
           products.map((product, index) => (

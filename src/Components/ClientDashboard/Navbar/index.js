@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../../../assets/profileImg.png";
-import logo from "../../../assets/logo.jpg";
 import "./navbar.css";
 
 import { FaUser, FaSignOutAlt, FaChevronDown } from "react-icons/fa";
