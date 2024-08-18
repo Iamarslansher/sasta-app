@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaStar,
   FaUser,
@@ -14,6 +14,14 @@ const OrderCard = (props) => {
   const { date, name, location, price, title, image } = props.order;
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+  const [ratingNo, setRatingNo] = useState();
+
+  useEffect(() => {
+    var rate = `${Math.ceil(Math.random() * 4)}.${Math.ceil(
+      Math.random() * 9
+    )}`;
+    setRatingNo(rate);
+  }, []);
 
   return (
     <div className="order-card-container">
@@ -44,7 +52,7 @@ const OrderCard = (props) => {
             {[...Array(5)].map((_, index) => (
               <FaStar key={index} className="stars" />
             ))}
-            <span>(4.8)</span>
+            <span>({ratingNo})</span>
           </div>
           <motion.button
             onClick={() =>

@@ -14,9 +14,8 @@ function MyOrders() {
     const user = JSON.parse(localStorage.getItem("user"));
     const user_Id = user.id;
     setUserId(user_Id);
-
     myOrder();
-  }, [orders]);
+  }, []);
 
   const myOrder = async () => {
     const all_Orders = await allOrders();
@@ -25,6 +24,22 @@ function MyOrders() {
     });
     setOrders(totalOrders);
   };
+
+  if (orders.length == 0) {
+    return (
+      <div>
+        <h1 className="container-text">You have no Orders yet.</h1>
+        <div className="main-div">
+          <button
+            className="linkBtn"
+            onClick={() => navigate("/clientdashboard")}
+          >
+            Order Now <FaArrowRightLong className="arrow" />
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="OrderContainer">
@@ -35,17 +50,18 @@ function MyOrders() {
             return <Card order={order} />;
           })
         ) : (
-          <div>
-            <h1 className="container-text">You have no Orders yet.</h1>
-            <div className="main-div">
-              <button
-                className="linkBtn"
-                onClick={() => navigate("/clientdashboard")}
-              >
-                Order Now <FaArrowRightLong className="arrow" />
-              </button>
-            </div>
-          </div>
+          // <div>
+          //   <h1 className="container-text">You have no Orders yet.</h1>
+          //   <div className="main-div">
+          //     <button
+          //       className="linkBtn"
+          //       onClick={() => navigate("/clientdashboard")}
+          //     >
+          //       Order Now <FaArrowRightLong className="arrow" />
+          //     </button>
+          //   </div>
+          // </div>
+          <div></div>
         )}
       </div>
     </div>
